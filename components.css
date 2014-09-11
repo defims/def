@@ -396,11 +396,11 @@
     .def-tabs.vertical>dd {
         float: none;
         margin: 0 0 0 8em;
-        width: auto;
+        padding: 0 0 10em 0;    
+        width: 100%;
+        background: lightblue;
     }
     .content {
-        float: right;
-        padding: 0 0 10em 0;    
-        background: lightblue;
+        /*float: right;/*此处浮动由.def-tabs清除，使得dt不被挤下去*/
     }
 /*.tabs.vertical end*/
