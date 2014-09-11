@@ -1,0 +1,406 @@
+/**
+    ie7+
+    .block-element.modified
+    组件规则，尽量少依赖，如果有依赖则显示声明
+/**/
+
+/*mod file*/
+.mod-file {
+    display: block;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+    .mod-file .input {
+        display: none;/*现代浏览器直接隐藏即可*/
+    }
+    @media \0screen\,screen\9 {/*ie 6 7 8*/
+        .mod-file .input {
+            display: block;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 0px;
+            height: 0px;
+            font-size: 0;
+            cursor: pointer;
+            border: dashed 9999px black;
+        }
+    }
+    .mod-file .text {
+        display: block;
+        cursor: pointer;
+    }
+
+
+
+.form-bttn {
+    display: block;
+    /*todo ie7-不支持inherit 需要单独处理*/
+    /*reset style*/
+    -webkit-appearance: none;
+       -moz-appearance: none;
+        -ms-appearance: none;
+         -o-appearance: none;
+            appearance: none;
+	display: inline-block;
+	box-sizing: border-box;
+	border: none;
+    margin: 0;
+	padding: 0;
+ 	background-color: transparent;
+    font: inherit;
+	color: inherit;
+	text-align: center;
+	text-indent: 0;
+	white-space: nowrap;
+    align-items: normal;
+    /*add style*/
+    cursor: pointer;
+    overflow: visible;
+}
+    .form-bttn:focus {
+        outline: none;   
+    }
+
+/*form progress bar*/
+.form-prgrss {
+    display: block;
+    position: relative;
+    width: 20em;
+    font: inherit;
+}
+    .form-prgrss .bar {
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        padding-left: 0;
+        padding-right: 0;
+        width: 21%;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+/*form checkbox*/
+.form-chckbx {
+    display: block;
+    cursor: pointer;
+    font: inherit;
+}
+    .form-chckbx input{
+        margin: 0;
+        vertical-align: middle;
+        zoom:expression(function(el){  
+            el.style.zoom = "1";
+            el.hideFocus ="true";
+        }(this));
+    }
+    .form-chckbx input:focus {
+        outline: none;    
+    }
+    .form-chckbx .text{
+        margin: 0;
+        font-size: 1em;
+        font-weight: normal;
+        vertical-align: middle;
+    }
+    /*针对ie9+进行渐进支持*/
+    .form-chckbx input:checked
+    ,.form-chckbx input:not(:checked) {
+        display: none;
+    }
+    .form-chckbx input:checked + .text
+    ,.form-chckbx input:not(:checked) + .text {
+        position: relative;
+        padding-left: 1.5em;
+    }
+    .form-chckbx input:checked + .text:before
+    ,.form-chckbx input:not(:checked) + .text:before {
+        content: "";
+        display: inline-block;
+    display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto .5em auto 0;
+        width: 13px;
+        height: 13px;
+        background: url(../img/form.png) 0px 0px no-repeat;
+    }
+    .form-chckbx input:checked + .text:before {
+        background-position: -13px 0px;
+    }
+    .form-chckbx input:checked + .text {
+        color: black;
+    }
+
+/*form radio*/
+.form-rd {
+    display: block;
+    cursor: pointer;
+    font: inherit;
+}
+    .form-radio input {
+    }
+    /*针对ie9+进行渐进支持*/
+    .form-rd input:checked
+    ,.form-rd input:not(:checked) {
+        display: none;
+    }
+    .form-rd input:checked + .text
+    ,.form-rd input:not(:checked) + .text {
+        position: relative;
+        padding-left: 1.5em;
+    }
+    .form-rd input:checked + .text:before
+    ,.form-rd input:not(:checked) + .text:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto .5em auto 0;
+        width: 13px;
+        height: 13px;
+        background: url(../img/form.png) 0px -13px no-repeat;
+    }
+    .form-rd input:checked + .text:before {
+        background-position: -13px -13px;
+    }
+    .form-rd input:checked + .text {
+        color: black;
+    }
+
+/*form pagination*/
+.form-pgntn {
+    font: inherit;
+}
+    .form-pgntn .container {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .form-pgntn .page {
+        border: solid 1px #ced3dd;
+        width: 1.5em;
+        height: 1.5em;
+        text-align: center;
+        line-height: 1.5em;
+    }
+    .form-pgntn a:link
+    ,.form-pgntn a:hover
+    ,.form-pgntn a:active
+    ,.form-pgntn a:visited {
+        text-decoration: none;
+        color: #666;
+    }
+    .form-pgntn .leftTriangle {
+        width: 0;
+        height: 0;
+        border-top: solid .5em transparent;
+        border-right: solid .6em #666;
+        border-bottom: solid .5em transparent;
+    }
+    .form-pgntn .rightTriangle {
+        width: 0;
+        height: 0;
+        border-top: solid .5em transparent;
+        border-left: solid .6em #666;
+        border-bottom: solid .5em transparent;
+    }
+    .form-pgntn .disable {
+        
+    }
+    .form-pgntn .active {
+        background: #67b3ec;
+    }
+    .form-pgntn .active a {
+        color: white;
+    }
+
+/*form tabs*/
+.form-tabs {
+    list-style: none;
+    font: inherit;
+}
+    .form-tbsCntnr {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;    
+    }
+    .form-tbsTb {
+        list-style: none;
+    }
+    .form-tbsTb a:link
+    ,.form-tbsTb a:hover
+    ,.form-tbsTb a:active
+    ,.form-tbsTb a:visited {
+        text-decoration: none;
+        color: inherit;
+    }
+    .form-tbsTb.target a:link
+    ,.form-tbsTb.target a:hover
+    ,.form-tbsTb.target a:active
+    ,.form-tbsTb.target a:visited {
+        color: white;
+    }
+
+/*form input*/
+.form-inpt {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: solid 1px black;
+    font: inherit;
+    font-size: 1em;
+    -webkit-appearance: none;
+            appearance: none;
+    -webkit-background-clip: padding;
+       -moz-background-clip: padding;
+            background-clip: padding-box;
+    height: inherit;
+    line-height: inherit;
+}
+/*form textarea*/
+.form-txtr {
+    position: relative;
+    background: white;
+}
+    .form-txtr textarea {
+        position: relative;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100%;
+        padding: .5em;
+        z-index: 2;
+        background: transparent;
+        font: inherit;
+    }
+    .form-txtr .form-plchldr {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: .5em;
+        color: #ccc;
+    }
+    .form-txtr.edited .form-plchldr {
+        display: none;
+    }
+
+
+/*dialog*/
+.dialog {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border: solid 5px rgba(102 ,102 ,102 ,.2);
+    width: 36.8%;
+    height: 36.8%;
+}
+    .dialog-cls {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2em;
+        height: 2em;
+        line-height: 2em;
+        text-align: center;
+        cursor: pointer;
+    }
+
+/*.tabs start*/
+.0def-tabs {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;/*清除浮动*/
+}
+    .0def-tabs>.tab {
+        position: relative;
+        *0line-height: 0;/*修复ie67下标签不对齐错误*/
+        display: inline;/*更佳*/
+    }
+    .0def-tabs>.tab.target {
+        z-index: 2;    
+    }
+    .0def-tabs>.tab>.title {
+        position: relative;
+        z-index: 2;
+        *0line-height: normal;
+        float: left;
+    }
+    .0def-tabs>.tab>.content {
+        display: none;
+        position: relative;
+        float: right;
+        margin: 2em 0 0 -100%;
+        width: 100%;
+        line-height: normal;
+        overflow: hidden;
+    }
+    .0def-tabs>.tab.target>.content {
+        display: block;    
+    }
+/*.tabs end*/
+
+/*.tabs start*/
+.def-tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;/*清除浮动*/
+}
+.def-tabs:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+    .def-tabs>dt {
+        float: left;
+        position: relative;
+        z-index: 2;
+        width: 8em;
+        height: 2em;
+        text-align: center;
+        line-height: 2em;
+        vertical-align: top;
+    }
+    .def-tabs>dd {
+        /*使用inline-block会导致ie67的浮动换行bug，改用都浮动*/
+        display: none;
+        vertical-align: top;
+        float: right;
+        margin: 2em 0 0 -100%;
+        width: 100%;
+    }
+    .def-tabs>dt.target+dd {
+        display: block;
+    }
+/*.tabs end*/
+
+/*.tabs.vertical start*/
+.def-tabs.vertical {
+}
+    .def-tabs.vertical>dt {
+        clear: left;
+    }
+    .def-tabs.vertical>dd {
+        float: none;
+        margin: 0 0 0 8em;
+        width: auto;
+    }
+    .content {
+        float: right;
+        padding: 0 0 10em 0;    
+        background: lightblue;
+    }
+/*.tabs.vertical end*/

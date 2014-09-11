@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="components.css">
+    <style>
+    body {
+        margin: 0;    
+    }
+    .def-tabs {
+        background: #eee;
+    }
+    .def-tabs>dt {
+        background: pink;
+    }
+    .def-tabs>dd {
+        background: lightblue;
+    }
+    </style>
+</head>
+<body>
+<!--
+div span 用于定位
+其余用语义话标签
+    <div class="def-menu">
+        <div class="header">
+            <ul class="nav">
+                <li>tab1</li>
+                <li>tab2</li>
+                <li>tab3</li>
+                <li>tab4</li>
+            </ul>
+        </div>
+        <div class="body">
+            
+        </div>
+    </div>
+-->
+    <!--
+    tabs表示每格tab是一个整体
+    .def-tabs>dd使用width:100%;在ie7下没有border-box实现
+    -->
+    <dl class="def-tabs vertical">
+        <dt class="target">upload</dt>
+        <dd>
+            <div class="content">
+                <label class="upload">
+                    上传文件
+                    <input type="file" />
+                </label>
+            </div>
+        </dd>
+        <dt>
+            title
+        </dt>
+        <dd>
+            content2
+        </dd>
+        <dt class="">
+            title
+        </dt>
+        <dd>
+            content3
+        </dd>
+    </ul>
+    <script>
+        setTimeout(function() {
+            //location.reload();
+        } ,500);
+    </script>
+</body>
+</html>
